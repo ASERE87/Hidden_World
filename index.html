@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Hidden World</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#071427">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- INICIO -->
+  <section class="screen" id="screen-home">
+    <canvas id="home-bg" class="bg-canvas"></canvas>
+    <div class="home-shade"></div>
+    <div class="logo">
+      <svg class="logo-paw" viewBox="0 0 64 64" aria-hidden="true"><g fill="#ffd54a" stroke="#6b3d12" stroke-width="3"><ellipse cx="32" cy="42" rx="15" ry="12"/><ellipse cx="12" cy="29" rx="6" ry="8"/><ellipse cx="25" cy="17" rx="6" ry="8"/><ellipse cx="39" cy="17" rx="6" ry="8"/><ellipse cx="52" cy="29" rx="6" ry="8"/></g></svg>
+      <div class="logo-plate"><span class="l1">Hidden</span><span class="l2">World</span></div>
+    </div>
+    <canvas id="ruffy" class="ruffy" width="360" height="400"></canvas>
+    <div class="home-menu">
+      <button class="btn btn-play" data-act="play">JUGAR</button>
+      <button class="btn btn-nav" data-act="levels"><i data-icon="map"></i>NIVELES</button>
+      <button class="btn btn-nav" data-act="shop"><i data-icon="store"></i>TIENDA</button>
+      <button class="btn btn-nav" data-act="settings"><i data-icon="gear"></i>AJUSTES</button>
+    </div>
+  </section>
+
+  <!-- SELECCIÓN DE NIVELES -->
+  <section class="screen panel-screen" id="screen-levels">
+    <header class="bar">
+      <button class="round-btn" data-act="back" aria-label="Volver"><i data-icon="back"></i></button>
+      <h1>NIVELES</h1>
+      <div class="pill"><i data-icon="star"></i><span id="levels-stars">0/18</span></div>
+    </header>
+    <div class="cards" id="level-cards"></div>
+  </section>
+
+  <!-- JUEGO -->
+  <section class="screen" id="screen-game">
+    <canvas id="scene" aria-label="Escena de objetos ocultos"></canvas>
+    <div class="hud">
+      <div class="hud-top">
+        <button class="round-btn" id="btn-pause" aria-label="Pausa"><i data-icon="pause"></i></button>
+        <div class="pill pill-wide"><i data-icon="star"></i><span id="hud-found">0/0</span></div>
+        <div class="pill pill-wide" id="hud-time-pill"><i data-icon="clock"></i><span id="hud-time">00:00</span></div>
+        <button class="bulb-btn" id="btn-hint" aria-label="Pista"><i data-icon="bulb"></i><b id="hud-hints">3</b></button>
+      </div>
+      <div class="zoom-ctl">
+        <button class="round-btn sm" id="zoom-in" aria-label="Acercar"><i data-icon="plus"></i></button>
+        <button class="round-btn sm" id="zoom-out" aria-label="Alejar"><i data-icon="minus"></i></button>
+        <button class="round-btn sm txt" id="zoom-home" aria-label="Zoom inicial">1x</button>
+      </div>
+      <div class="tray">
+        <div class="tray-title">ENCUENTRA LOS OBJETOS</div>
+        <div class="tray-items" id="tray-items"></div>
+      </div>
+      <div class="toast" id="toast"></div>
+    </div>
+    <div class="loading" id="loading"><div class="spinner"></div><p>Preparando escena…</p></div>
+  </section>
+
+  <!-- TIENDA -->
+  <section class="screen panel-screen" id="screen-shop">
+    <header class="bar">
+      <button class="round-btn" data-act="back" aria-label="Volver"><i data-icon="back"></i></button>
+      <h1>TIENDA</h1>
+      <div class="pill"><i data-icon="coin"></i><span id="shop-coins">0</span></div>
+    </header>
+    <div class="list" id="shop-list"></div>
+  </section>
+
+  <!-- AJUSTES -->
+  <section class="screen panel-screen" id="screen-settings">
+    <header class="bar">
+      <button class="round-btn" data-act="back" aria-label="Volver"><i data-icon="back"></i></button>
+      <h1>AJUSTES</h1><div class="pill ghost"></div>
+    </header>
+    <div class="list" id="settings-list"></div>
+  </section>
+
+  <div class="modal-root" id="modal-root"></div>
+</div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
